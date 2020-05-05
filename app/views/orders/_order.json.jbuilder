@@ -1,2 +1,2 @@
-json.extract! customer, :id, :product_name, :product_count, :created_at, :updated_at
-json.url customer_url(customer, format: :json)
+json.extract! order, :id, :product_name, :product_count, :customer_id :created_at, :updated_at
+json.url order_url(order, format: :json)
