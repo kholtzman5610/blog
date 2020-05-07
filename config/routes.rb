@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :customers
+  resources :posts do
+     resources :comments
+   end
+
   resources :pages
 end
 
@@ -13,5 +17,5 @@ Manual setup routes & 7 conventional routes :
   patch '/pages/:id', to: 'pages#update'
   delete 'pages/:id', to: 'pages#destroy'
 
-  *shortcut above 
+  *shortcut above
 =end
