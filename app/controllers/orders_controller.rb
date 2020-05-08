@@ -11,15 +11,15 @@ class OrdersController <ApplicationController
   end
 
   def update
-    @order = Order.find(param[:id])
-    @order.update(order_params)
-    redirect_to @customer
-  end
+  @order = Order.find(params[:id])
+  @order.update(order_params)
+  redirect_to @customer
+end
 
-  def destory
+  def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to @order
+    redirect_to @customer
   end
 
     private

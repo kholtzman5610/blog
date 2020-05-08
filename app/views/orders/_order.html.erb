@@ -1,15 +1,13 @@
-<table>
-  <thead>
-    <tr>
-      <strong>Product name:</strong>
-      <%= order.product_name %>
+<div>
+  <strong>Product name:</strong>
+  <%= order.product_name %>
 
-      <br>
+  <strong>Product count:</strong>
+  <%= order.product_count %>
 
-      <strong>Product count:</strong>
-      <%= order.product_count %>
+  <div class="comment-admin">
+  <%= link_to "Edit", edit_customer_order_path(@customer, order) %>
+  <%= link_to "Delete", [@customer, order], method: :delete %>
+  </div>
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-</table>
+</div>
