@@ -26,18 +26,7 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
-    # @customer = Customer.new(customer_params)
-    #
-    # respond_to do |format|
-    #   if @customer.save
-    #     format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-    #     format.json { render :show, status: :created, location: @customer }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    @customer = Customer.new(customer_params)
+   @customer = Customer.new(customer_params)
     if @customer.save
       flash.notice = "The customer record was created successfully."
       redirect_to @customer
@@ -50,16 +39,7 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
   def update
-    # respond_to do |format|
-    #   if @customer.update(customer_params)
-    #     format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @customer }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    if @customer.update(customer_params)
+   if @customer.update(customer_params)
       flash.notice = "The customer record was updated successfully."
       redirect_to @customer
     else
@@ -86,7 +66,7 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :phone, :email)
+      params.require(:customer).permit(:first_name, :last_name, :phone, :email, :customer_id)
     end
 
     def catch_not_found(e)

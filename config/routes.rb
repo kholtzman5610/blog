@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :customers
+  #resources :orders
+  #resources :customers
+
+  resources :customers do
+    resources :orders
+  end
+
   resources :posts do
      resources :comments
    end
