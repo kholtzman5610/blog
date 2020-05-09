@@ -58,19 +58,20 @@ class OrdersController <ApplicationController
     end
   end
 
-    private
-
+  private
+    # Use callbacks to share common setup or constraints between actions.
     def set_order
-      @order = Order.find(params[:order_id])
+      @order = Order.find(params[:id])
     end
 
+    # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:product_name, :product_count)
+      params.require(:order).permit(:product_name, :product_count, :customer_id)
     end
 
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.message
-      redirect_to @order
+      redirect_to orders_path
     end
   end
