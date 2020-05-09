@@ -25,10 +25,6 @@
     <%= f.text_field :product_count %>
   </div>
 
-  <div class="field">
-    <%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

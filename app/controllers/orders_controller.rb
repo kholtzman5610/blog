@@ -4,7 +4,12 @@ class OrdersController <ApplicationController
 
   def create
     @order = @customer.orders.create(order_params)
-    redirect_to @customer
+     if @order.save
+       flash.notice = "The order record was created successfully."
+       redirect_to @customer
+    else
+      flash.now.alert = @order.errors.full_messages.to_sentence
+    end
   end
 
   def edit
