@@ -21,4 +21,14 @@ RSpec.describe Order, type: :model do
     subject.product_count=nil
     expect(subject).to_not be_valid
   end
+
+  it "is not valid without customer_id" do
+    subject.customer_id=nil
+    expect(subject).to_not be_valid
+  end
+
+  it "is not valid with an invalid customer_id" do
+    subject.customer_id=5555
+    expect(subject).to_not be_valid
+  end
 end
